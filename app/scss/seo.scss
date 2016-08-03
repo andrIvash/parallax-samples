@@ -1,0 +1,329 @@
+// Singularity unit tests
+@import "compass";
+@import "singularitygs";
+
+@import "includes/normalize";
+
+.parallax {
+  display: block;
+  width: 100%;
+  height: 300px;
+  background-color: #fceed3;
+  overflow: hidden;
+  position: relative;
+  .layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .layer_wrap {
+    width: 1920px;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    left: 50%;
+    margin-left: -960px;
+  }
+}
+.layer__svg__lines_svg {
+  position: absolute;
+  left: 357px;
+  top: 25px;
+}
+.layer__svg__gear_1 {
+  position: absolute;
+  left: 335px;
+  top: 77px;
+}
+.layer__svg__gear_2 {
+  position: absolute;
+  left: 969px;
+  top: 135px;
+}
+.layer__svg__cloud_1 {
+  position: absolute;
+  left: 972px;
+  top: -14px;
+}
+.layer__svg__cloud_2 {
+  position: absolute;
+  left: 237px;
+  top: 25px;
+}
+.layer__svg__trees_back {
+  position: absolute;
+  left: 119px;
+  top: 52px;
+}
+.layer__svg__trees_front {
+  position: absolute;
+  left: 1133px;
+  top: -90px;
+}
+.layer__svg__grass {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+}
+
+.layer__svg__fox {
+  position: absolute;
+  left: 337px;
+  bottom: -84px;
+  &.run {
+    animation: run_fox 5s linear 1;
+    transform: translate3d(2000px,0,0);
+  }
+}
+@keyframes run_fox {
+  0% {
+    transform: translate3d(0,0,0);
+  }
+  2% {
+    transform: translate3d(0,-20px,0);
+  }
+  4% {
+    transform: translate3d(10px,0,0);
+  }
+  100% {
+    transform: translate3d(2000px,0,0);
+  }
+}
+#foot1, #foot3 {
+  transform-origin: center top;
+  &.run {
+    animation: run_foot1 .4s linear infinite;
+  }
+}
+#foot2, #foot4 {
+  transform-origin: center top;
+  &.run {
+    animation: run_foot2 .4s linear infinite;
+  }
+}
+@keyframes run_foot1 {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(44.9deg);
+  }
+}
+@keyframes run_foot2 {
+  0% {
+    transform: rotate(-45deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-44.9deg);
+  }
+}
+.layer__svg__light {
+  position: absolute;
+  top: 87px;
+  left: 616px;
+}
+#light {
+  transform-origin: center bottom;
+  &.run {
+    #lightness {
+      display: none;
+    }
+    #body_light {
+      transition: all 2s linear;
+      fill: #f8f8f8;
+    }
+    animation: .5s light_down 2s linear 1 forwards;
+    //transform: rotate(100deg)  translate3d(100px,0px,0);
+  }
+
+}
+@keyframes light_down {
+  0% {
+    transform: rotate(0deg) translate3d(0px,0px,0);
+  }
+  10% {
+    transform: rotate(100deg) translate3d(0px,0px,0);
+  }
+  100% {
+    transform: rotate(100deg)  translate3d(100px,0px,0);
+  }
+}
+#gear_1 {
+  animation: gear_1 60s linear infinite;
+}
+#gear_2 {
+  animation: gear_1 30s linear infinite;
+}
+@keyframes gear_1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+#reload {
+  animation: reload 4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes reload {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(59deg);
+  }
+}
+#lightness {
+  animation: lightness 4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes lightness {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#fox_eye_right,
+#fox_eye_left {
+  transform-origin: center;
+  animation: blinking 10s ease-in-out infinite;
+  &.run {
+    animation-name: none;
+    transform: scale(2, 2);
+  }
+}
+@keyframes blinking {
+  0% {
+    transform: scale(1, 1);
+  }
+  5% {
+    transform: scale(1, 0);
+  }
+  7% {
+    transform: scale(1, 1);
+  }
+}
+#fox {
+  overflow: visible;
+}
+#tail {
+  transform-origin: right;
+  animation: tail 16s ease-in-out infinite;
+  &.run {
+    animation-name: none;
+    transform: rotate(90deg);
+  }
+}
+@keyframes tail {
+  0% {
+    transform: rotate(0deg);
+  }
+  23% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  99% {
+    transform: rotate(0deg);
+  }
+}
+
+#ear_right {
+  transform-origin: center bottom;
+  animation: ear_right 26s linear infinite;
+}
+@keyframes ear_right {
+  0% {
+    transform: rotate(0deg);
+  }
+  23% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+#ear_left {
+  transform-origin: center bottom;
+  animation: ear_right 36s linear infinite;
+}
+
+.layer__svg__glass {
+  position: absolute;
+  bottom: 21px;
+  right: 602px;
+  transform-origin: center;
+}
+.layer__svg__glass.movedown {
+  animation: shake 1s linear infinite;
+}
+@keyframes shake {
+  0%,100% {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0)
+  }
+
+  10%,30%,50%,70%,90% {
+    -webkit-transform: translate3d(-2px,0,0);
+    transform: translate3d(-2px,0,0)
+  }
+
+  20%,40%,60%,80% {
+    -webkit-transform: translate3d(2px,0,0);
+    transform: translate3d(2px,0,0)
+  }
+}
+.layer__svg__glass.through {
+  animation: through 4s ease-out 1;
+  transform: translate(1500px, -800px);
+}
+@keyframes through {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  100% {
+    transform: translate(1500px, -800px);
+  }
+}
